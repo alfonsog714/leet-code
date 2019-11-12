@@ -1,7 +1,11 @@
-/**
+/*
  * @param {number[]} nums
  * @return {number}
  */
+
+// ======================================================
+
+// First attempt
 
 /*
 
@@ -19,31 +23,24 @@
     Return the length of the arr nums
 */
 
-// First attempt
+var removeDuplicates = function(nums) {
+    const cache = {};
 
-// var removeDuplicates = function(nums) {
-//     const cache = {};
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] in cache) {
+            nums.splice(i, i);
+        } else {
+            cache[nums[i]] = true;
+        }
+    }
 
-//     for (let i = 0; i < nums.length; i++) {
-//         if (nums[i] in cache) {
-//             nums.splice(i, i);
-//         } else {
-//             cache[nums[i]] = true;
-//         }
-//     }
-
-//     return nums.length;
-// };
+    return nums.length;
+};
 
 // ======================================================
 
 // Second attempt
 
-/**
- * @param {number[]} nums
- * @return {number}
- */
-
 /*
 
     [0, 0, 0, 1]
@@ -59,6 +56,7 @@
     
     Return the length of the arr nums
 */
+
 var removeDuplicates = function(nums) {
     for (let i = 0; i < nums.length; i++) {
         if (nums[i + 1] === nums[i]) {
@@ -69,4 +67,40 @@ var removeDuplicates = function(nums) {
     }
 
     return nums.length;
+};
+
+// ======================================================
+// Third Attempt, first working solution. Very slow however.
+/*
+
+Have a pointer at the first number in the array
+Create an empty array.
+Loop through the nums array
+    If the number is not in the array
+        add it
+    else
+        skip
+
+Clear the nums array
+Make the nums array the new array
+
+*/
+
+var removeDuplicates = function(nums) {
+    if (nums.length === 0) {
+        return 0;
+    }
+
+    let arr = [];
+
+    for (let i = 0; i < nums.length; i++) {
+        if (!arr.includes(nums[i])) {
+            arr.push(nums[i]);
+        }
+    }
+
+    nums.length = 0;
+    for (num of arr) {
+        nums.push(num);
+    }
 };
