@@ -60,13 +60,84 @@ var maxProfit = function(prices) {
 
     return high - low;
 };
-
 // ======================================================
 //  Attempt Two
 
 /*
 Pseudocode:
 
+    Variable to keep track of whether or not we have a stock
     Variable to hold onto current day's price (in the beginning, the first day)
+    Variable to hold onto the profit
+
+    Loop through the array
+        If we don't have a stock
+            If tomorrow's price is greater than today's price
+                "Buy" today's stock and set current to that stock
+            
+        Otherwise,
+            if tomorrow's price is lower than today's price
+            & today's price is greater than your current
+                Increment the profit by today's stock - your current
+                Sell your stock
+
+        If we have a stock
+            If the current day is greater than our current
+                add onto the profit
+        
+        return the profit
     
 */
+
+var maxProfit = function(prices) {
+    let hasStock = false;
+    let current = 0;
+    let profit = 0;
+
+    for (let i = 0; i < prices.length; i++) {
+        if (!hasStock) {
+            if (prices[i + 1] > prices[i]) {
+                hasStock = true;
+                current = prices[i];
+            }
+        } else if (prices[i + 1] < prices[i] && prices[i] > current) {
+            profit += prices[i] - current;
+            hasStock = false;
+        }
+    }
+};
+
+// ======================================================
+// Attempt Three
+// Peaks and Valleys approach (From the solutions provided by LeetCode)
+
+/*
+Pseudocode:
+    Variable for holding a pointer
+    Variable for holding a "valley", AKA a low buy point
+    Variable for holding a "peak", AKA a high selling point
+*/
+
+var maxProfit = function(prices) {
+    let i = 0;
+    let valley = prices[0];
+    let peak = prices[0];
+    let maxProfit = 0;
+
+    while (i < prices.length - 1) {
+        while (i < prices.length - 1 && prices[i] > prices[i + 1]) {
+            i++;
+        }
+
+        valley = prices[i];
+
+        while (i < prices.length - 1 && prices[i] <= prices[i + 1]) {
+            i++;
+        }
+
+        peak = prices[i];
+        maxProfit += peak - valley;
+    }
+
+    return maxProfit;
+};
