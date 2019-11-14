@@ -37,6 +37,9 @@ Examples: is_power_two(6) → false is_power_two(16) → trueZ
     Else if the array is greater than 3 and divisible by 3
         Loop through the array
             make an array and add i+1 and i+2 to it
+    
+    Else
+
 */
 
 const divideArray = (x = []) => {
@@ -48,7 +51,7 @@ const divideArray = (x = []) => {
         return `Array is empty.`;
     }
 
-    x.sort();
+    x.sort((a, b) => a > b);
 
     if (x.length === 3) {
         return [[x[0]], [x[1]], [x[2]]];
