@@ -39,7 +39,7 @@ Examples: is_power_two(6) → false is_power_two(16) → trueZ
             make an array and add i+1 and i+2 to it
     
     Else
-
+        
 */
 
 const divideArray = (x = []) => {
