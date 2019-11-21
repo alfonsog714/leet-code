@@ -74,22 +74,29 @@ var singleNumber = function(nums) {
 // Looking at solutions
 // I'll also be making my own remove method for arrays
 
-const arrayRemove = (arr, val) => {
-    return arr.filter(element => {
-        return element != val;
-    });
-};
+// const arrayRemove = (arr, val) => {
+//     return arr.filter(element => {
+//         return element != val;
+//     });
+// };
 
 const singleNumber = nums => {
+    if (nums.length < 1) {
+        return `The array is empty.`;
+    }
     const list = [];
 
     for (let i = 0; i < nums.length; i++) {
         if (!list.includes(nums[i])) {
             list.push(nums[i]);
+            console.log(`Added ${nums[i]} - ${list}`);
         } else {
-            arrayRemove(list, nums[i]);
+            list.filter(num => {
+                return num === nums[i];
+            });
+            console.log(`Removed ${nums[i]} - ${list}`);
         }
     }
-    console.log(list);
+
     return list.pop();
 };
