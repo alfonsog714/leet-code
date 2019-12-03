@@ -92,7 +92,7 @@ const singleNumber = nums => {
             console.log(`Added ${nums[i]} - ${list}`);
         } else {
             list.filter(num => {
-                return num === nums[i];
+                return num !== nums[i];
             });
             console.log(`Removed ${nums[i]} - ${list}`);
         }
