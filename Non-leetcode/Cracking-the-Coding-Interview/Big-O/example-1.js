@@ -1,5 +1,5 @@
 /* 
-    What is the runtime of the below code?
+    What is the runtime of the code below?
 */
 
 function foo(array) {
