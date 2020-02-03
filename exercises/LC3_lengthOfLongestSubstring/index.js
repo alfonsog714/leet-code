@@ -38,6 +38,7 @@ function lengthOfLongestSubstring(s) {
 }
 
 /* 
+    - Time complexity: O(n)
     - The window is created with the starting index, start, and the ending index, which is the i in the for-loop.
     - It's the sliding window approach because we conditionally move the beginning of the window as we iterate through the string.
 */
