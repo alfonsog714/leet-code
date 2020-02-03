@@ -30,8 +30,9 @@ function longestPalindrome(s) {
 
 /* 
     Emphasize the importance of this question, study this.
-    
+
     Technique: Expand around the center
+    Time complexity: O(n^2)
 */
 
 module.exports = longestPalindrome;
