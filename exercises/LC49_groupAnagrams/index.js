@@ -80,4 +80,24 @@ for now, print hashmap to see what it looks like
 //     return true;
 // }
 
+function groupAnagrams(strs) {
+    let grouped = {};
+
+    for (let i = 0; i < strs.length; i++) {
+        const word = strs[i];
+        const key = word
+            .split('')
+            .sort()
+            .join(''); // splits the word into an array of characters and then joins them in their alphabetized verision
+
+        if (!grouped[key]) {
+            grouped[key] = [];
+        }
+
+        grouped[key].push(word);
+    }
+
+    return Object.values(grouped);
+}
+
 module.exports = groupAnagrams;
