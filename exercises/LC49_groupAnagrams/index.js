@@ -27,38 +27,57 @@ for every string in the array
 for now, print hashmap to see what it looks like
 */
 
-function groupAnagrams(strs) {}
+// function groupAnagrams(strs) {
+//     const anagrams = {};
 
-function checkIfAnagram(string1, string2) {
-    const str1chars = {};
-    const str2chars = {};
+//     for (let i = 0; i < strs.length; i++) {
+//         let word = strs[i];
+//         anagrams[word] = [word];
+//         strs.slice(i, 1);
 
-    for (let char of string1) {
-        if (str1chars[char]) {
-            str1chars[char] += 1;
-        } else {
-            str1chars[char] = 1;
-        }
-    }
+//         for (let j = 0; j < strs.length; j++) {
+//             let secondWord = strs[j];
+//             if (checkIfAnagram(word, secondWord)) {
+//                 anagrams[word].push(secondWord);
+//                 strs.slice(j, 1);
+//                 j--;
+//             }
+//         }
+//     }
 
-    for (let char of string2) {
-        if (str2chars[char]) {
-            str2chars[char] += 1;
-        } else {
-            str2chars[char] = 1;
-        }
-    }
+//     console.log(anagrams);
+// }
 
-    for (key in str1chars) {
-        if (!str2chars[key]) {
-            return false;
-        } else if (str2chars[key] !== str1chars[key]) {
-            return false;
-        }
-    }
-    console.log(str1chars);
-    console.log(str2chars);
-    return true;
-}
+// function checkIfAnagram(string1, string2) {
+//     const str1chars = {};
+//     const str2chars = {};
+
+//     for (let char of string1) {
+//         if (str1chars[char]) {
+//             str1chars[char] += 1;
+//         } else {
+//             str1chars[char] = 1;
+//         }
+//     }
+
+//     for (let char of string2) {
+//         if (str2chars[char]) {
+//             str2chars[char] += 1;
+//         } else {
+//             str2chars[char] = 1;
+//         }
+//     }
+
+//     for (key in str1chars) {
+//         if (!str2chars[key]) {
+//             return false;
+//         } else if (str2chars[key] !== str1chars[key]) {
+//             return false;
+//         }
+//     }
+//     // console.log(str1chars);
+//     // console.log(str2chars);
+//     return true;
+// }
 
 module.exports = groupAnagrams;
