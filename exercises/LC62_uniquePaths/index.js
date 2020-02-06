@@ -35,6 +35,9 @@ function uniquePaths(m, n) {
         console.log(matrix);
         matrix = '';
     }
+
+    console.log('=================');
+    console.log(dpMatrix);
     return dpMatrix[dpMatrix.length - 1][m - 1];
 }
 
