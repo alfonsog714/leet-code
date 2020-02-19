@@ -24,7 +24,19 @@ Explanation: The array represents the integer 4321.
 */
 
 var plusOne = function(digits) {
-    let number = digits.join('');
-    number = parseInt(number) + 1;
-    return number.toString().split('');
+    let carry = 1;
+    let returnArray = [];
+    for (let i = digits.length - 1; i >= 0; i--) {
+        let added = digits[i] + carry;
+
+        added === 10 ? (carry = 1) : (carry = 0);
+        returnArray[i] = added % 10;
+    }
+
+    if (carry === 1) {
+        returnArray = new Array(digits.length + 1).fill(0);
+        returnArray[0] = 1;
+    }
+
+    return returnArray;
 };
